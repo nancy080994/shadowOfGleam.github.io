@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Swiper -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css"> -->
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- googleFont -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', 'Libre Franklin', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            height: 3000px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .banner {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: gray;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(129, 106, 87);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 300;
+            overflow: hidden;
+        }
+
+
+        .Banner_logo img {
+            width: 350px;
+        }
+
+        
+
+        .list {
+            font-weight: 200;
+            font-size: 24px;
+            color: #fff;
+
+            margin: 0 60px;
+            transition: 2s;
+
+            /* border-right: 1px solid #fff; */
+        }
+
+        .list-2{
+            font-weight: 200;
+            font-size: 24px;
+            color: #fff;
+
+            margin: 0 45px;
+            transition: 2s;
+
+        }
+
+        .navList .list-2 {
+            position: relative;
+        }
+
+        .navList .list-2:nth-child(1):after,
+        .navList .list-2:nth-child(2):after,
+        .navList .list-2:nth-child(3):after,
+        .navList .list-2:nth-child(4):after {
+            content: '';
+            width: 2px;
+            height: 16px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -45px;
+        }
+
+
+
+        .navList .list {
+            position: relative;
+        }
+
+        .navList .list:nth-child(1):after,
+        .navList .list:nth-child(2):after,
+        .navList .list:nth-child(3):after,
+        .navList .list:nth-child(4):after {
+            content: '';
+            width: 2px;
+            height: 16px;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -60px;
+        }
+
+        .nav_logo {
+            position: absolute;
+            left: 1.5%;
+
+            display: none;
+            
+        }
+
+        .nav_logo img {
+            width: 165px;
+          
+        }
+
+        .nav_link {
+            position: absolute;
+            right: 3%;
+
+            display: none;
+        }
+
+
+        .fa-instagram {
+            font-size: 30px;
+            color: #fff;
+
+            margin-right: 20px;
+        }
+
+        .fa-facebook-square {
+            font-size: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class="banner">
+            <div class="Banner_logo animate__animated animate__fadeIn animate__delay-1s">
+                <img src="./images/01-Banner/LOGO-04.png" alt="">
+            </div>
+
+        </div>
+        <nav>
+            <div class="navbar">
+                <div class="nav_logo animate__animated animate__fadeIn">
+                    <img src="./images/02-nav/LOGO-White-05.png" alt="">
+                </div>
+                <div class="navList animate__animated animate__fadeIn animate__delay-2s">
+                    <a href="" class="list">About</a>
+                    <a href="" class="list">Service</a>
+                    <a href="" class="list">Store</a>
+                    <a href="" class="list">Links</a>
+                    <a href="" class="list">Contact</a>
+                </div>
+                <div class="nav_link animate__animated animate__fadeIn">
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-facebook-square"></i></a>
+                </div>
+
+
+            </div>
+
+        </nav>
+
+
+    </header>
+
+    <!-- 匯入Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 匯入JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+        ///////////navbar變化
+        var scroll_top = 0
+        var nav = document.querySelector(".navbar")
+        var nav_logo = document.querySelector('.nav_logo')
+        var nav_link = document.querySelector(".nav_link")
+
+
+        // var web_height = document.body.clientHeight;//網頁可見區域高
+        // console.log(web_height);
+
+        // var this_height = window.screen.availHeight //螢幕可用工作區高度
+        // console.log(this_height);
+
+        // 網頁被捲去的高：document.body.scrollTop
+
+        // var this_height = document.documentElement.clientHeight//頁面對象高度（即*DY對象高度加上Margin高） 
+        
+
+
+        var navList = document.querySelectorAll('.list')
+        // console.log(navList);
+        
+        window.onscroll = function () {
+            scroll_top = window.scrollY
+            // console.log(scroll_top)
+            var this_height = document.documentElement.clientHeight
+            // console.log(this_height - "80");
+            if (scroll_top >= this_height - "80") {
+                nav.classList.add('fixed')
+                nav_logo.style.display = 'block'
+                nav_link.style.display = 'block'
+
+                navList.forEach(element => {
+                    element.classList.remove('list')
+                    element.classList.add("list-2")
+                });
+
+            } else {
+                nav.classList.remove('fixed')
+                nav_logo.style.display = 'none'
+                nav_link.style.display = 'none'
+
+                navList.forEach(element => {
+                    element.classList.add('list')
+                    element.classList.remove("list-2")
+                });
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

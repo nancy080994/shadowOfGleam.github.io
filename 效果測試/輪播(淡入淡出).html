@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css reset start*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        /*css reset end*/
+        /*css public start*/
+        .floatfix {
+            *zoom: 1;
+        }
+
+        .floatfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /*css public end*/
+        /*slider start*/
+        .slider-contaner {
+            width: 100%;
+            position: relative;
+        }
+
+        .slider-item+.slider-item {
+            opacity: 0;
+        }
+
+        .slider-item {
+            width: 100%;
+            position: absolute;
+            animation-timing-function: linear;
+            animation-name: fade;
+            animation-iteration-count: infinite;
+            background-size: 100%;
+        }
+
+        .focus-container {
+            position: absolute;
+            z-index: 7;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+
+        .focus-container li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 10px;
+            background: #fff;
+        }
+
+        .focus-item {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            animation-timing-function: linear;
+            animation-name: fade;
+            animation-iteration-count: infinite;
+        }
+
+        .focus-item2,
+        .focus-item3,
+        .focus-item4,
+        .focus-item5 {
+            opacity: 0;
+        }
+
+        .focus-container ul {
+            margin-left: 46%;
+        }
+
+        /*設置輪播焦點的位置*/
+        .focus-container {
+            bottom: 2%;
+        }
+
+        /*設置當前圖片焦點的顏色*/
+        .focus-item {
+            background: #51B1D9;
+        }
+
+        /*設置動畫，請根據實際需要修改秒數*/
+        .slider-item,
+        .focus-item {
+            animation-duration: 21s;
+        }
+
+        .slider-item1,
+        .focus-item1 {
+            animation-delay: -1s;
+        }
+
+        .slider-item2,
+        .focus-item2 {
+            animation-delay: 3s;
+        }
+
+        .slider-item3,
+        .focus-item3 {
+            animation-delay: 7s;
+        }
+
+        .slider-item4,
+        .focus-item4 {
+            animation-delay: 11s;
+        }
+
+        .slider-item5,
+        .focus-item5 {
+            animation-delay: 15s;
+        }
+
+        @keyframes fade {
+            0% {
+                background-size: 115%;
+                opacity: 0;
+                z-index: 2;
+            }
+
+            10% {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            12% {
+                background-size: 110%;
+                opacity: 1;
+                z-index: 1;
+            }
+
+            20% {
+                background-size: 110%;
+                opacity: 1;
+                z-index: 1;
+            }
+
+            35% {
+                background-size: 100%;
+                opacity: 0;
+                z-index: 0;
+            }
+
+            100% {
+                opacity: 0;
+                z-index: 0;
+            }
+        }
+
+        /*設置背景，響應式請利用媒體查詢根據斷點修改路徑*/
+        .slider-item1 {
+            background-image: url(./img/img-1.jpg);
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .slider-item2 {
+            background-image: url(./img/img-2.jpg);
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .slider-item3 {
+            background-image: url(./img/img-3.jpg);
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .slider-item4 {
+            background-image: url(./img/img-2.jpg);
+            background-position:center;
+            background-size: 100%;
+        }
+
+        .slider-item5 {
+            background-image: url(./img/img-3.jpg);
+            background-position:center;
+            background-size: 100%;
+        }
+
+        /*設置圖片的高度，請根據具體需要修改百分比，響應式及時修改此值*/
+        .slider,
+        .slider-item {
+            padding-bottom: 70%;
+        }
+
+        /* 原文網址：https: //kknews.cc/code/ga95amm.html */
+    </style>
+</head>
+
+<body>
+
+    <section class="slider-contaner">
+        <ul class="slider">
+            <li class="slider-item slider-item1"></li>
+            <li class="slider-item slider-item2"></li>
+            <li class="slider-item slider-item3"></li>
+            <li class="slider-item slider-item4"></li>
+            <li class="slider-item slider-item5"></li>
+        </ul>
+        <div class="focus-container">
+            <ul class="floatfix">
+                <li>
+                    <div class="focus-item focus-item1"></div>
+                </li>
+                <li>
+                    <div class="focus-item focus-item2"></div>
+                </li>
+                <li>
+                    <div class="focus-item focus-item3"></div>
+                </li>
+                <li>
+                    <div class="focus-item focus-item4"></div>
+                </li>
+                <li>
+                    <div class="focus-item focus-item5"></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 原文網址：https://kknews.cc/code/ga95amm.html -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</body>
+
+</html>
